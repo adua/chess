@@ -1,0 +1,122 @@
+2011-09-07  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/components.cc: fix race condition.
+	* configure.ac: version 6.0.1
+	* NEWS: changes in version 6.0.1
+	* INSTALL: remove info not related to installation
+
+2011-08-20  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/adapter/adapter.cpp: fix program crash for solveepd with st 30.
+	* src/frontend/engine.c: allow kibitz for solve command.
+
+2011-07-31  Antonio Ceballos  <aceballos@gmail.com>
+
+	* doc/gnuchess.texi: 'book.dat' replaced by 'book.bin'.
+
+2011-07-30  Antonio Ceballos  <aceballos@gmail.com>
+
+	* INSTALL: 'cd src' before './gnuchess'
+
+2011-07-30  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/components.cc: if gnuchess.ini is not found, report error
+	before prompt.
+	* src/adapter/main.cpp: if gnuchess.ini is not found, report error
+	before prompt.
+	* TODO: if gnuchess.ini is not found, report error before prompt.
+
+2011-07-29  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/adapter/adapter.cpp: after 'book on', open the book.
+
+2011-06-23  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/adapter/adapter.cpp: use strlen instead of sizeof to get
+	length of book file name.
+
+2011-05-02  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/frontend/common.h: remove declarations of unused functions 
+	and variables.
+	* src/frontend/cmd.c: remove initialization of unused variable,
+	* src/frontend/init.c: remove unused functions.
+	* src/main.cc: remove unused variables.
+
+2011-04-29  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/frontend/Makefile.am: remove unused code: ttable.c
+	* src/frontend/ttable.c: remove unused file.
+	* src/frontend/common.h: remove declarations of functions defined
+	in ttable.c; remove declaration of unused variable: HashTab[].
+	* src/frontend/pgn.c: remove unused code: call to TTClear();
+	* src/main.cc: removed unused code: references to HashTab[].
+
+2011-04-27  Antonio Ceballos  <aceballos@gmail.com>
+
+	* INSTALL: typo in book file name.
+
+2011-04-24  Antonio Ceballos  <aceballos@gmail.com>
+
+	* AUTHORS: correct e-mail address.
+	* Makefile.am: iq6.epd removed from distribution.
+	* test/: new directory, for test suites.
+	* test/iq6.epd: moved from .
+	* test/endgame.epd: new file, copied from CVS.
+	* test/BT2630.epd: new file, copied from CVS.
+	* test/README: new file, for the record of test executions.
+
+2011-04-18  Antonio Ceballos  <aceballos@gmail.com>
+
+	* ChangeLog: changes taking v5.9.91 as first version.
+	* NEWS: reorganized.
+	* TODO: reorganized.
+	* configure.ac: doc/Makefile included.
+	* Makefile.am: doc subdir added; doc/README* removed.
+	* doc/quotes.rb: new file, removes extra quotes in book source file.
+	* doc/README: deleted, replaced by texinfo file.
+	* doc/README_adapter: deleted, replaced by texinfo file.
+	* doc/README_engine: deleted, replaced by texinfo file.
+	* doc/README_engine_technical: deleted, replaced by texinfo file.
+	* doc/Makefile.am: new file, builds info file.
+	* doc/gnuchess.texi: new file, replaces all previous doc/README*.
+	* doc/fdl.texi: new file, required to build info file: license.
+	* doc/version.texi: new file, required to build info file: version.
+	* src/gnuchessx: new file (was in v5), script to run in xboard mode.
+	* src/gnuchessu: new file, script to run in UCI mode.
+	* src/Makefile.am: gnuchessx and gnuchessu added to bin_SCRIPTS.
+	* src/gnuchess.ini: no log file by default.
+	* src/main.cc: add v5 options: manual, easy, post, memory N; 
+	remove v5 options: hashsize N
+	* src/frontend/cmd.c: add v5 commands: book *, hash on/off,
+	memory [N], null on/off; remove v5 options: hashsize [N]; 
+	update help command.
+	* src/frontend/engine.c: support to v5 options and commands.
+	* src/frontend/solve.c: remove ELO computation.
+	* src/frontend/common.h: remove hashsize command.
+	* src/adapter/option.cpp: added option BookWorst to support
+	command 'book worst'; default values: EngineName (GNU Chess),
+	LogFile (adapter.log), BookWorst (false).
+	* src/adapter/book.cpp: method book_move overloaded to support
+	command 'book worst'.
+	* src/adapter/book.h: method book_move overloaded to support
+	command 'book worst'.
+	* src/adapter/adapter.cpp: ponder by default; support to commands:
+	book *, hash on/off, memory [N], null on/off.
+	* src/adapter/uci.cpp: support to hashsize command.
+	* src/adapter/main.cpp: support to hashsize command; use defaults 
+	if gnuchess.ini not found.
+	* src/engine/protocol.cpp: support to hash on/off command.
+	* src/engine/search_full.cpp: support to hash on/off command.
+
+2011-04-18  Antonio Ceballos  <aceballos@gmail.com>
+
+	* README-svn: for building gnuchess from Subversion.
+	* src/frontend/engine.c: comment out extra output write.
+	* src/adapter/adapter.cpp: remove debug trace.
+
+Copyright (C) 2001-2011 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.

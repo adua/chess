@@ -1,0 +1,43 @@
+TODO of GNU Chess
+
+  Copyright (C) 2001-2011 Free Software Foundation, Inc.
+
+  Copying and distribution of this file, with or without modification,
+  are permitted in any medium without royalty provided the copyright
+  notice and this notice are preserved.
+
+Items are in random order, mostly chronological.
+
+* Commands white/black/switch don't work. They are supposed to be 
+used for icsDrone. However, icsDrone reports to not work for 
+GNU Chess 5.02. Neither for v6...
+
+* General cleanups: still some unused code from v5.
+
+* Implement the weak mode.
+
+* Improve compatibility with Chess Engine Communication Protocol.
+For instance, 'move e2e4' instead of 'My move is : e2e4'.
+
+* Add support for MS Windows.
+
+* icsdrone for Internet
+
+* 'pgnsave filename.pgn' will not replace filename.pgn, but will append to it.
+This is not supported by the PGN format. The file must be replaced, may be 
+asking the user to confirm or deny, or a new file name must be requested.
+
+* When 'name NAME' is used, the log.nnn file is created, but it will miss
+to include some information compared with v5.
+
+* Consider using gnulib for better portability.
+
+* Include PolyGlot's book making capability.
+
+* Include PolyGlot's book merging capability.
+
+* GA/EC venture to make the chess engine stronger.
+
+* Get benefit from multiple-core processors, by sharing search across them.
+
+* End-game table
