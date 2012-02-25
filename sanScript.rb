@@ -21,7 +21,7 @@ def bishopMoves pos
   _row = row
   _col = col
   #Head NE
-  while (@valid_range.include? _row) && (@valid_range.include? _col)
+  while valid([_row, _col])
     moves.push([_row, _col])
     _row += 1
     _col += 1
@@ -30,7 +30,7 @@ def bishopMoves pos
   _row = row
   _col = col
  #Head NW
-  while (@valid_range.include? _row) && (@valid_range.include? _col)
+  while valid([_row, _col])
     moves.push([_row, _col])
     _row += 1
     _col -= 1
@@ -39,7 +39,7 @@ def bishopMoves pos
   _row = row
   _col = col
  #Head SE
-  while (@valid_range.include? _row) && (@valid_range.include? _col)
+  while valid([_row, _col])
     moves.push([_row, _col])
     _row -= 1
     _col += 1
@@ -48,7 +48,7 @@ def bishopMoves pos
   _row = row
   _col = col
  #Head SW
-  while (@valid_range.include? _row) && (@valid_range.include? _col)
+  while valid([_row, _col])
     moves.push([_row, _col])
     _row -= 1
     _col -= 1
@@ -64,7 +64,7 @@ def rookMoves pos
   _row = row
   _col = col
   #Head E
-  while (@valid_range.include? _row) && (@valid_range.include? _col)
+  while valid([_row, _col])
     moves.push([_row, _col])
     _col += 1
   end
@@ -72,7 +72,7 @@ def rookMoves pos
   _row = row
   _col = col
  #Head W
-  while (@valid_range.include? _row) && (@valid_range.include? _col)
+  while valid([_row, _col])
     moves.push([_row, _col])
     _col -= 1
   end
@@ -80,7 +80,7 @@ def rookMoves pos
   _row = row
   _col = col
  #Head S
-  while (@valid_range.include? _row) && (@valid_range.include? _col)
+  while valid([_row, _col])
     moves.push([_row, _col])
     _row -= 1
   end
@@ -88,7 +88,7 @@ def rookMoves pos
   _row = row
   _col = col
  #Head N
-  while (@valid_range.include? _row) && (@valid_range.include? _col)
+  while valid([_row, _col])
     moves.push([_row, _col])
     _row += 1
   end
