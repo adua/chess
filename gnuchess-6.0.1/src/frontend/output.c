@@ -47,18 +47,19 @@ void ShowMoveList (int ply)
 {
    leaf *node;
    int i = 0;
-   
+   printf ("START\n");
    for (node = TreePtr[ply]; node < TreePtr[ply+1]; node++)
    {
       SANMove (node->move, ply); 
-      printf ("%5s %3d\t", SANmv, SwapOff(node->move));
+      //printf ("%5s %3d\t", SANmv, SwapOff(node->move));
+      printf ("%i:%i ",FROMSQ(node->move), TOSQ(node->move));
       if (++i == 5)
       {
          printf ("\n"); 
          i = 0;
       }
    }
-   printf ("\n");
+   printf ("END\n");
 } 
 
 
@@ -164,7 +165,7 @@ void ShowBoard (void)
  *****************************************************************************/ 
 {
    int r, c, sq;
-
+  
    fprintf (ofp, "\n");
    if (board.side == white)
       fprintf (ofp, "white  ");
@@ -184,40 +185,42 @@ void ShowBoard (void)
       fprintf (ofp, "  %s", algbr[board.ep]);
 
    fprintf (ofp, "\n");
+   printf ("START\n");
    for (r = 56; r >= 0; r -= 8)
    {
       for (c = 0; c < 8; c++)
       {
          sq = r + c;
          if (board.b[white][pawn]   & BitPosArray[sq])
-            fprintf (ofp, "P ");
+            fprintf (ofp, "P");
          else if (board.b[white][knight] & BitPosArray[sq])
-            fprintf (ofp, "N ");
+            fprintf (ofp, "N");
          else if (board.b[white][bishop] & BitPosArray[sq])
-            fprintf (ofp, "B ");
+            fprintf (ofp, "B");
          else if (board.b[white][rook]   & BitPosArray[sq])
-            fprintf (ofp, "R ");
+            fprintf (ofp, "R");
          else if (board.b[white][queen]  & BitPosArray[sq])
-            fprintf (ofp, "Q ");
+            fprintf (ofp, "Q");
          else if (board.b[white][king]   & BitPosArray[sq])
-            fprintf (ofp, "K ");
+            fprintf (ofp, "K");
          else if (board.b[black][pawn]   & BitPosArray[sq])
-            fprintf (ofp, "p ");
+            fprintf (ofp, "p");
          else if (board.b[black][knight] & BitPosArray[sq])
-            fprintf (ofp, "n ");
+            fprintf (ofp, "n");
          else if (board.b[black][bishop] & BitPosArray[sq])
-            fprintf (ofp, "b ");
+            fprintf (ofp, "b");
          else if (board.b[black][rook]   & BitPosArray[sq])
-            fprintf (ofp, "r ");
+            fprintf (ofp, "r");
          else if (board.b[black][queen]  & BitPosArray[sq])
-            fprintf (ofp, "q ");
+            fprintf (ofp, "q");
          else if (board.b[black][king]   & BitPosArray[sq])
-            fprintf (ofp, "k ");
+            fprintf (ofp, "k");
          else
-            fprintf (ofp, ". ");
+            fprintf (ofp, ".");
       }
-      fprintf (ofp, "\n");
+      fprintf (ofp, "|");
    }
+   printf ("\nEND\n");
    fprintf (ofp, "\n");
 }
 

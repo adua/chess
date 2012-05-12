@@ -375,7 +375,6 @@ void UnmakeMove (int side, int *move)
    return;
 }
 
-
 void SANMove (int move, int ply)
 /****************************************************************************
  *
@@ -395,6 +394,7 @@ void SANMove (int move, int ply)
    s = SANmv;
    f = FROMSQ(move);
    t = TOSQ(move);
+   //printf("Move from %i to %i", f, t);
    /* Check some special moves like castling */
    if (move & CASTLING)
    {
