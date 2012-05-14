@@ -48,22 +48,27 @@ def makeMove mv
 
   moves = input.split("<").last.delete(">")
 end
+ 
+_serVal = ""
 
-while(true)
+ while(true)
+   
+  serVal = ""
 
-  ser_val = ""
-  while(ser_val.eql? "")
-    ser_val = @spR.read
+  while(serVal.eql? "")
+    serVal = @spR.read
   end
 
   #read_val += "\n"
   #@spW.write read_val
 
   #Get all possible moves
-  moves = getMoves ser_val
+  unless _serVal.eql? serVal
+    moves = getMoves serVal
+    puts "Possible moves for #{serVal}: #{moves}"
+  end
 
-  puts "Possible moves for #{ser_val}: #{moves}"
-
+  _serVal = serVal
   #mv = gets
 
   #cpuMv = makeMove mv
