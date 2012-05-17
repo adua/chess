@@ -76,9 +76,9 @@ void setup()
       square1 = square1 +j;
       qui[square1] = analogRead(in_pin); 
       delay(10);
-      Serial.print (square1);
-      Serial.print (":  ");
-      Serial.println(qui[square1]);
+//      Serial.print (square1);
+//      Serial.print (":  ");
+//      Serial.println(qui[square1]);
       
     
       
@@ -87,7 +87,7 @@ void setup()
      }
   }
   
-    Serial.println("Lez do this");
+   // Serial.println("Lez do this");
 
 }
   
@@ -140,9 +140,15 @@ void loop()
      square2 = square2 +j;
      readValue = analogRead(in_pin);
      normVal = readValue - qui[square2];
-     if (normVal >= 30 || normVal <= -30)
+     if (normVal >= 30)
      {
          Serial.println(square2);
+         while (normVal >= 30)
+         {
+           readValue = analogRead(in_pin);
+           normVal = readValue - qui[square2];
+         }
+         Serial.println(100);
      }
 
 
